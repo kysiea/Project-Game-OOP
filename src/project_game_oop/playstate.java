@@ -50,8 +50,8 @@ public class playstate extends JPanel{
         delayTime.start();
         time.start();
         newX.start();
-        addZom.start();
         addc.start();
+        adds.start();
     }
 
     public void paintComponent(Graphics g) {
@@ -146,7 +146,7 @@ public class playstate extends JPanel{
         }
     });
 
-    Thread addZom = new Thread(new Runnable() {
+    Thread addc = new Thread(new Runnable() {
         public void run() {
             while (true) {
                 try {
@@ -169,7 +169,7 @@ public class playstate extends JPanel{
         }
     });
     
-    Thread addc = new Thread(new Runnable() {
+    Thread adds = new Thread(new Runnable() {
         public void run() {
             while (true) {
                 try {
