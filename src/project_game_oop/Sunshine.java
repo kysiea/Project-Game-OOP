@@ -52,10 +52,6 @@ public class Sunshine {
         return img;
     }
 
-    public Image getImageDead() {
-        return zd;
-    }
-
     public int getX() {
         return x;
     }
