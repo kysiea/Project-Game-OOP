@@ -25,13 +25,9 @@ public class playstate extends JPanel{
 
     Actor me = new Actor();
     
-<<<<<<< HEAD
     public ArrayList<Cloud> c = new ArrayList<Cloud>();
     public ArrayList<Sunshine> s = new ArrayList<Sunshine>();
-=======
-    public ArrayList<Cloud> zom = new ArrayList<Cloud>();
-    public ArrayList<Sunshine> c = new ArrayList<Sunshine>();
->>>>>>> decf4b5b73ea52cbfccf6307b9f6882e836ce7a7
+
     
     playstate(){
         this.setFocusable(true);
