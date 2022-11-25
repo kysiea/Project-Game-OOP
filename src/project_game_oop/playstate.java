@@ -27,7 +27,6 @@ public class playstate extends JPanel{
     
     public ArrayList<Cloud> zom = new ArrayList<Cloud>();
     public ArrayList<Sunshine> c = new ArrayList<Sunshine>();
-    public boolean sttt = false;
     
     playstate(){
         this.setFocusable(true);
