@@ -26,21 +26,21 @@ public class Sunshine {
         String imageLocation = "/image/sunshine.png";
         URL imageURL = this.getClass().getResource(imageLocation);
         img = Toolkit.getDefaultToolkit().getImage(imageURL);
-        rdZom.start();
+        sun.start();
     }
 
-    Thread rdZom = new Thread(new Runnable() {     //zombieเคลื่อนที่
+    Thread sun = new Thread(new Runnable() {     //zombieเคลื่อนที่
         public void run() {
             while (true) {
                 y += 5;
                 if (y >= 1000) {
                     img = null;
-                    rdZom = null;
+                    sun = null;
                     x = (int) ((Math.random() * 200)+400);;
                     y = -10;
                 }
                 try {
-                     rdZom.sleep(20);
+                     sun.sleep(20);
                 } catch (InterruptedException e) {
                 }
             }

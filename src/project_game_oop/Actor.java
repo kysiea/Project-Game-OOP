@@ -17,7 +17,7 @@ public class Actor {
     int w = 100;
     int h = 141;
 
-    public ImageIcon shooter = new ImageIcon(this.getClass().getResource("/image/flower1.png"));
+    public ImageIcon flower = new ImageIcon(this.getClass().getResource("/image/flower1.png"));
     Actor(){
     }
     public Rectangle2D getbound(){

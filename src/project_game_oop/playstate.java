@@ -25,9 +25,8 @@ public class playstate extends JPanel{
 
     Actor me = new Actor();
     
-    public ArrayList<Cloud> zom = new ArrayList<Cloud>();
-    public ArrayList<Sunshine> c = new ArrayList<Sunshine>();
-    public boolean sttt = false;
+    public ArrayList<Cloud> c = new ArrayList<Cloud>();
+    public ArrayList<Sunshine> s = new ArrayList<Sunshine>();
     
     playstate(){
         this.setFocusable(true);
@@ -36,9 +35,9 @@ public class playstate extends JPanel{
             public void keyPressed(KeyEvent e) {
                 super.keyPressed(e);
                 int a = e.getKeyCode();
-               if (e.getKeyCode()==KeyEvent.VK_D|e.getKeyCode()==KeyEvent.VK_RIGHT) {
+               if (e.getKeyCode()==KeyEvent.VK_RIGHT) {
                    me.x += 50;
-                } else if (e.getKeyCode()==KeyEvent.VK_A|e.getKeyCode()==KeyEvent.VK_LEFT) {
+                } else if (e.getKeyCode()==KeyEvent.VK_LEFT) {
                    me.x -= 50;
                } 
 
@@ -57,7 +56,7 @@ public class playstate extends JPanel{
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(bg1.getImage(), 0, 0, 1000, 813, this);
-        g.drawImage(me.shooter.getImage(), me.x, me.y, me.w, me.h, this);
+        g.drawImage(me.flower.getImage(), me.x, me.y, me.w, me.h, this);
         g.setColor(Color.BLACK);
         g.setFont(new Font("Chiller", Font.CENTER_BASELINE, 50));
         g.drawString("SCORE : " + score, 50, 50);
@@ -70,25 +69,25 @@ public class playstate extends JPanel{
         }
 
            //วาดตัวละคร
-        for (int i = 0; i < zom.size(); i++) {
-            g.drawImage(zom.get(i).getImage(), zom.get(i).getX(), zom.get(i).getY(), 100, 113, this);
-        }
-        //วาดดวงอาทิด
         for (int i = 0; i < c.size(); i++) {
             g.drawImage(c.get(i).getImage(), c.get(i).getX(), c.get(i).getY(), 100, 113, this);
         }
+        //วาดดวงอาทิด
+        for (int i = 0; i < s.size(); i++) {
+            g.drawImage(s.get(i).getImage(), s.get(i).getX(), s.get(i).getY(), 100, 113, this);
+        }
 
         //zombieกับตัวละครไหม
-        for (int j = 0; j < zom.size(); j++) {
-            if (Intersect(me.getbound(), zom.get(j).getbound())) {
+        for (int j = 0; j < c.size(); j++) {
+            if (Intersect(me.getbound(), c.get(j).getbound())) {
                 over = true;
             }
          }
         
-        for (int j = 0; j < c.size(); j++) {
-            if (Intersect(me.getbound(), c.get(j).getbound())) {
+        for (int j = 0; j < s.size(); j++) {
+            if (Intersect(me.getbound(), s.get(j).getbound())) {
                 score += 1;
-                c.remove(j);
+                s.remove(j);
             }
          }
         
@@ -152,13 +151,13 @@ public class playstate extends JPanel{
                 try {
                     if (delay < 1) {
                         if(t<=30){
-                            zom.add(new Cloud());
+                            c.add(new Cloud());
                             Thread.sleep(2000);
                         } else if(t<=50) {
-                            zom.add(new Cloud());
+                            c.add(new Cloud());
                             Thread.sleep(1000);
                         }else {
-                            zom.add(new Cloud());
+                            c.add(new Cloud());
                             Thread.sleep(500);
                         }
                     }
@@ -175,13 +174,13 @@ public class playstate extends JPanel{
                 try {
                     if (delay < 1) {
                         if(t<=30){
-                            c.add(new Sunshine());
+                            s.add(new Sunshine());
                             Thread.sleep(2000);
                         } else if(t<=50) {
-                            c.add(new Sunshine());
+                            s.add(new Sunshine());
                             Thread.sleep(1000);
                         }else {
-                            c.add(new Sunshine());
+                            s.add(new Sunshine());
                             Thread.sleep(500);
                         }
                     }
@@ -190,9 +189,7 @@ public class playstate extends JPanel{
                 repaint();
             }
         }
-    });
-    
-    
+    });   
 
     Thread delayTime = new Thread(new Runnable() {
         public void run() {
@@ -205,8 +202,6 @@ public class playstate extends JPanel{
             }
         }
     });
-
-
 
     public boolean Intersect(Rectangle2D a, Rectangle2D b) {
         return (a.intersects(b));

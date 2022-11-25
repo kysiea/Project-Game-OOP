@@ -15,7 +15,7 @@ import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
  */
 public class Project_Game_OOP extends JFrame implements ActionListener {
     Home home = new Home();
-    playstate p = new playstate();
+    playstate play = new playstate();
 
     public Project_Game_OOP() {
         this.setSize(1000,813);
@@ -29,8 +29,8 @@ public class Project_Game_OOP extends JFrame implements ActionListener {
             this.setLocationRelativeTo(null);
             this.remove(home);
             this.setSize(1000, 813);
-            this.add(p);
-            p.requestFocusInWindow();
+            this.add(play);
+            play.requestFocusInWindow();
             repaint();
         }
     }

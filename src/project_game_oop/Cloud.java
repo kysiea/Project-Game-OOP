@@ -26,21 +26,21 @@ public class Cloud {
         String imageLocation = "/image/cloud.png";
         URL imageURL = this.getClass().getResource(imageLocation);
         img = Toolkit.getDefaultToolkit().getImage(imageURL);
-        rdZom.start();
+        cloud.start();
     }
 
-    Thread rdZom = new Thread(new Runnable() {     //zombieเคลื่อนที่
+    Thread cloud = new Thread(new Runnable() {  
         public void run() {
             while (true) {
                 y += 5;
                 if (y >= 1000) {
                     img = null;
-                    rdZom = null;
+                    cloud = null;
                     x = (int) ((Math.random() * 200)+400);;
                     y = -10;
                 }
                 try {
-                     rdZom.sleep(20);
+                     cloud.sleep(20);
                 } catch (InterruptedException e) {
                 }
             }

@@ -10,8 +10,8 @@ import javax.swing.JPanel;
  */
 public class Home extends JPanel{
     private ImageIcon homebg = new ImageIcon(this.getClass().getResource("/image/background2.jpeg"));
-    private ImageIcon bts = new ImageIcon(this.getClass().getResource("/image/start.png"));
-    public JButton start = new JButton(bts);
+    private ImageIcon bs = new ImageIcon(this.getClass().getResource("/image/start.png"));
+    public JButton start = new JButton(bs);
     Home(){
         setLayout(null);
         start.setBounds(425, 250, 170,90);
